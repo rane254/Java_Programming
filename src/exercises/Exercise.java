@@ -9,7 +9,8 @@ public class Exercise {
         // printGreaterNum();
         // printCircumference();
         // canVote();
-        infiniteLoop();
+        // infiniteLoop();
+        displayCountNNumbers();
     }
 
     public static void printAvgUserInput() {
@@ -91,6 +92,31 @@ public class Exercise {
                 break;
             }
         }
+    }
+
+    public static void displayCountNNumbers() {
+        Scanner sc = new Scanner(System.in);
+
+        int positive = 0, negative = 0, zeros = 0;
+        while (true) {
+            System.out.println("Enter 12345 to quit!");
+            System.out.print("Enter the number: ");
+            int num = sc.nextInt();
+
+            if (num == 12345) {
+                System.out.println("Exiting.....");
+                break;
+            }
+            if (num == 0) {
+                zeros++;
+            } else if (num > 0) {
+                positive++;
+            } else {
+                negative++;
+            }
+        }
+
+        System.out.println("Positive: " + positive + "\n" + "Negative: " + negative + "\n" + "Zeros: " + zeros);
     }
 
 }

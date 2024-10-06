@@ -10,7 +10,10 @@ public class Exercise {
         // printCircumference();
         // canVote();
         // infiniteLoop();
-        displayCountNNumbers();
+        // displayCountNNumbers();
+        // findNExponential();
+        printGreatestCommonDivisor();
+        // printFibonacciSeries();
     }
 
     public static void printAvgUserInput() {
@@ -119,4 +122,73 @@ public class Exercise {
         System.out.println("Positive: " + positive + "\n" + "Negative: " + negative + "\n" + "Zeros: " + zeros);
     }
 
+    public static void findNExponential() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the number: ");
+        int x = sc.nextInt();
+
+        System.out.print("Enter the power: ");
+        int n = sc.nextInt();
+
+        int result = 1;
+
+        for (int i=1; i<=n; i++) {
+            result *= x;
+        }
+
+        System.out.println("The power of " + x + " is " + result);
+    }
+
+    public static void printGreatestCommonDivisor() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the number 1: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter the number 2: ");
+        int b = sc.nextInt();
+
+        int tempA = a;
+        int tempB = b;
+
+        // Euclid's theorem
+//        while (b != 0) {
+//            int temp2 = b;
+//            b = a % b;
+//            a = temp2;
+//        }
+
+        while (a > 0 && b > 0) {
+            if (a > b) {
+                a %= b;
+            } else {
+                b %= a;
+            }
+        }
+
+        if ( a == 0) {
+            System.out.println("The GCD of " + tempA + " and " + tempB + " is " + b);
+            return;
+        }
+
+        System.out.println("The GCD of " + tempA + " and " + tempB + " is " + a);
+    }
+
+    public static void printFibonacciSeries() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the number: ");
+        int num = sc.nextInt();
+
+        int first = 0, second = 1, next;
+        System.out.print("Fibonacci Series: 0 1 ");
+        for (int i=2; i<num; i++) {
+            next = first + second;
+            System.out.print(next + " ");
+            first = second;
+            second = next;
+        }
+        System.out.println();
+    }
 }

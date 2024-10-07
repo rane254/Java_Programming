@@ -6,7 +6,8 @@ public class Strings {
     public static void main(String[] args) {
         // declarativeStr();
         // concatStr();
-        compareNames();
+        // compareNames();
+        subStr();
     }
 
     public static void declarativeStr() {
@@ -38,10 +39,10 @@ public class Strings {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter your name 1: ");
-        String name1 =  sc.next();
+        String name1 = sc.next();
 
         System.out.print("Enter your name 2: ");
-        String name2 =  sc.next();
+        String name2 = sc.next();
 
         // str1 > str2 => +ve value
         // str1 == str2 => 0
@@ -62,5 +63,14 @@ public class Strings {
         } else {
             System.out.println("Strings are not equal.");
         }
+    }
+
+    public static void subStr() {
+        String str = "Hello World!";
+
+        // str.substring(beginIndex, < endIndex) -> brijesh.substring(0, 4) -> brij.
+
+        System.out.println(str + ": " + str.length());
+        System.out.println(str.substring(6, str.length()-1));
     }
 }

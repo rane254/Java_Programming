@@ -4,10 +4,13 @@ import java.util.Scanner;
 
 public class Strings {
     public static void main(String[] args) {
+        // Strings are immutable -> once declared cannot be changed, modified or deleted
+
         // declarativeStr();
         // concatStr();
         // compareNames();
-        subStr();
+        // subStr();
+        strManipulationMethods();
     }
 
     public static void declarativeStr() {
@@ -29,7 +32,7 @@ public class Strings {
         System.out.println(firstName + " " + lastName);
         System.out.println(firstName + ": " + firstName.length());
 
-        // charAt(index) - pre-built function
+        // charAt(index) - pre-built method
         for (int i=0; i<firstName.length(); i++) {
             System.out.print(firstName.charAt(i) + " ");
         }
@@ -72,5 +75,18 @@ public class Strings {
 
         System.out.println(str + ": " + str.length());
         System.out.println(str.substring(6, str.length()-1));
+    }
+
+    public static void strManipulationMethods() {
+        String numStr = "12345";
+        int num = 12345;
+
+        if (numStr.equals(Integer.toString(num))) {
+            System.out.println("Number 12345 converted to string");
+        }
+
+        if (num == Integer.parseInt(numStr)) {
+            System.out.println("String 12345 converted to number");
+        }
     }
 }

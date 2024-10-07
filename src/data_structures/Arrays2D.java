@@ -27,8 +27,17 @@ public class Arrays2D {
         System.out.println("------------O/p----------");
         for (int i=0; i<rows; i++) {
             for (int j=0; j<cols; j++) {
-                System.out.println("Index [" + i + "," + j + "] : " + arr[i][j]);
+                System.out.print("[" + i + "," + j + "] : " + arr[i][j] + ", ");
             }
+            System.out.println();
+        }
+
+        System.out.println("------------O/p----------");
+        for (int i=0; i<rows; i++) {
+            for (int j=0; j<cols; j++) {
+                System.out.print(arr[i][j] + ", ");
+            }
+            System.out.println();
         }
     }
 }

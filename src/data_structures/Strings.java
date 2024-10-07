@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Strings {
     public static void main(String[] args) {
-        // Strings are immutable -> once declared cannot be changed, modified or deleted
+        // Strings are immutable -> once declared and stored in memory -> cannot be changed, modified or deleted
 
         // declarativeStr();
         // concatStr();

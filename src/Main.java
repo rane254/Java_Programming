@@ -11,10 +11,12 @@ public class Main {
 //        int sum = a + b;
 //        System.out.println(sum);
 
-        System.out.print("Enter your name: ");
-        String name = sc.nextLine();
+//        System.out.print("Enter your name: ");
+//        String name = sc.nextLine();
+//
+//        System.out.println("O/p => " + name);
 
-        System.out.println("O/p => " + name);
+
     }
 
     public static void greet(String name) {

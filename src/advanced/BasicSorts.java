@@ -21,13 +21,21 @@ public class BasicSorts {
         insertionSort(arr);
     }
 
+    public static void swap(int[] arr, int idx1, int idx2) {
+        int temp = arr[idx1];
+        arr[idx1] = arr[idx2];
+        arr[idx2] = temp;
+    }
+
     public static void bubbleSort(int[] arr) {
         for (int i=0; i<arr.length-1; i++) {
             for (int j=0; j<arr.length-i-1; j++) {
                 if (arr[j] > arr[j+1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
+//                    int temp = arr[j];
+//                    arr[j] = arr[j+1];
+//                    arr[j+1] = temp;
+
+                    swap(arr, j, (j+1));
                 }
             }
         }
@@ -46,9 +54,11 @@ public class BasicSorts {
                     smallest = j;
                 }
             }
-            int temp = arr[smallest];
-            arr[smallest] = arr[i];
-            arr[i] = temp;
+//            int temp = arr[smallest];
+//            arr[smallest] = arr[i];
+//            arr[i] = temp;
+
+            swap(arr, smallest, i);
         }
 
         System.out.print("Sorted array: ");
@@ -58,5 +68,18 @@ public class BasicSorts {
     }
 
     private static void insertionSort(int[] arr) {
+        for (int i=0; i<arr.length; i++) {
+            int j=i;
+            while (j > 0 && arr[j-1] > arr[j]) {
+                swap(arr, j, (j-1));
+                j--;
+            }
+        }
+
+        System.out.print("Sorted array: ");
+        for (int ele : arr) {
+            System.out.print(ele + " ");
+        }
     }
+
 }

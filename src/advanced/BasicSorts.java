@@ -16,9 +16,9 @@ public class BasicSorts {
             arr[i] = sc.nextInt();
         }
 
-        // bubbleSort(arr); // n^2
+        bubbleSort(arr); // n^2
         // selectionSort(arr); // n^2
-        insertionSort(arr);
+        // insertionSort(arr);
     }
 
     public static void swap(int[] arr, int idx1, int idx2) {
@@ -27,7 +27,17 @@ public class BasicSorts {
         arr[idx2] = temp;
     }
 
+    public static void display(int[] arr) {
+        System.out.print("Sorted array: ");
+        for (int ele : arr) {
+            System.out.print(ele + " ");
+        }
+    }
+
     public static void bubbleSort(int[] arr) {
+
+        boolean isSwap = false;
+
         for (int i=0; i<arr.length-1; i++) {
             for (int j=0; j<arr.length-i-1; j++) {
                 if (arr[j] > arr[j+1]) {
@@ -36,17 +46,22 @@ public class BasicSorts {
 //                    arr[j+1] = temp;
 
                     swap(arr, j, (j+1));
+                    isSwap = true;
                 }
+            }
+
+            // optimization
+            if (!isSwap) {
+                display(arr);
+                return;
             }
         }
 
-        System.out.print("Sorted array: ");
-        for (int ele : arr) {
-            System.out.print(ele + " ");
-        }
+        display(arr);
     }
 
     public static void selectionSort(int[] arr) {
+
         for (int i=0; i<arr.length-1; i++) {
             int smallest = i;
             for (int j=i+1; j<arr.length; j++) {
@@ -54,20 +69,15 @@ public class BasicSorts {
                     smallest = j;
                 }
             }
-//            int temp = arr[smallest];
-//            arr[smallest] = arr[i];
-//            arr[i] = temp;
 
             swap(arr, smallest, i);
         }
 
-        System.out.print("Sorted array: ");
-        for (int ele : arr) {
-            System.out.print(ele + " ");
-        }
+        display(arr);
     }
 
     private static void insertionSort(int[] arr) {
+
         for (int i=0; i<arr.length; i++) {
             int j=i;
             while (j > 0 && arr[j-1] > arr[j]) {
@@ -76,10 +86,7 @@ public class BasicSorts {
             }
         }
 
-        System.out.print("Sorted array: ");
-        for (int ele : arr) {
-            System.out.print(ele + " ");
-        }
+        display(arr);
     }
 
 }

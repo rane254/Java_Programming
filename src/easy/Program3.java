@@ -1,6 +1,6 @@
 package easy;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Program3 {
     public static void main(String[] args) {
@@ -8,7 +8,19 @@ public class Program3 {
         // repeatedCount();
         // printFactors();
         // loops();
-        findPower();
+        // findPower();
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("Enter the item amount: ");
+//        double originalAmt = sc.nextDouble();
+//        System.out.print("Enter the depreciation cost: ");
+//        double depreciationCost = sc.nextDouble();
+//        System.out.print("Enter the rate of interest %: ");
+//        double interestRate = sc.nextDouble();
+//        System.out.print("Enter the year of purchase: ");
+//        int itemPurchased = sc.nextInt();
+//        Deprecation d = new Deprecation(originalAmt, depreciationCost, interestRate, itemPurchased);
+//        d.calculateCost();
+        evenDays();
     }
 
     public static void  checkCase() {
@@ -111,5 +123,65 @@ public class Program3 {
         }
 
         return result;
+    }
+
+    public static void evenDays() {
+        Map<String, Integer> calendar = new HashMap<>();
+        calendar.put("january", 31);
+        calendar.put("february", 28); // or 29 for leap year
+        calendar.put("march", 31);
+        calendar.put("april", 30);
+        calendar.put("may", 31);
+        calendar.put("june", 30);
+        calendar.put("july", 31);
+        calendar.put("august", 31);
+        calendar.put("september", 30);
+        calendar.put("october", 31);
+        calendar.put("november", 30);
+        calendar.put("december", 31);
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the month: ");
+        String input = sc.next().trim().toLowerCase();
+
+        int days = calendar.get(input);
+        int count = 0;
+        for (int i=1; i<=days; i++) {
+            if (i % 2 == 0) {
+                count++;
+            }
+        }
+        System.out.println("Even days in " + input + " is " + count);
+        System.out.println("Odd days in " + input + " is " + (days-count));
+    }
+}
+
+class Deprecation {
+    double originalCost, deprecatedCost, rateOfInterest;
+    int year;
+
+    Deprecation(double originalCost, double deprecatedCost, double rateOfInterest, int year) {
+        this.originalCost = originalCost;
+        this.deprecatedCost = deprecatedCost;
+        this.rateOfInterest = rateOfInterest;
+        this.year = year;
+    }
+
+    public void calculateCost() {
+        double depreciationCost = 0;
+        double initialValue = this.originalCost;
+        int len = calculateYears(this.year);
+        for (int i=0; i<len; i++) {
+            depreciationCost = (initialValue - this.deprecatedCost) * this.rateOfInterest;
+            initialValue -= depreciationCost;
+        }
+        System.out.println("After 5 years\nOriginal Cost: " + this.originalCost + "\nDepreciation Cost: " + depreciationCost + "\nDeprecated Value: " + initialValue);
+    }
+
+    public static int calculateYears(int year) {
+        int years = 0;
+        int currentYear = 2024;
+        years = currentYear -year;
+        return years;
     }
 }

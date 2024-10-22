@@ -24,12 +24,19 @@ public class Main {
 //        String name = sc.nextLine();
 //
 //        System.out.println("O/p => " + name);
-        greet(input);
+//        greet(input);
+//        int a = 5;
+//        int b = 15;
+//        demo(a);
 
     }
 
     public static void greet(String name) {
         System.out.println("Hello " + name);
         System.out.print("Let's study\nJava");
+    }
+
+    public static void demo(int a, int b) {
+        System.out.println(a+" "+b);
     }
 }

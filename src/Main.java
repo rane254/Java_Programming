@@ -10,9 +10,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
 // Initializes objects to read user input from the console.
-        InputStreamReader in = new InputStreamReader(System.in);
-        BufferedReader br = new BufferedReader(in);
-        String input = br.readLine();
+//        InputStreamReader in = new InputStreamReader(System.in);
+//        BufferedReader br = new BufferedReader(in);
+//        String input = br.readLine();
 
 
 //        int a = sc.nextInt();
@@ -29,6 +29,11 @@ public class Main {
 //        int b = 15;
 //        demo(a);
 
+//        int a = 17;
+//        {
+//            int a = 25;
+//        }
+//        System.out.println(a); // 25 if re-assigned
     }
 
     public static void greet(String name) {

@@ -23,24 +23,27 @@ public class Program7 {
 //        System.out.println(Arrays.toString(arr));
         System.out.println(arr);
 
-        while (true) {
-            System.out.print("Enter 1. continue or 2. stop: ");
-            int op = sc.nextInt();
+//        while (true) {
+//            System.out.print("Enter 1. continue or 2. stop: ");
+//            int op = sc.nextInt();
+//
+//            if (op == 2) {
+//                System.out.println("Stopping...");
+//                break;
+//            }
+//
+//            System.out.print("\nEnter the index 1: ");
+//            int index1 = sc.nextInt();
+//            System.out.print("Enter the index 2: ");
+//            int index2 = sc.nextInt();
+//            change(arr, index1, index2);
+//            System.out.println();
+////            System.out.println(Arrays.toString(arr));
+//            System.out.println(arr);
+//        }
 
-            if (op == 2) {
-                System.out.println("Stopping...");
-                break;
-            }
-
-            System.out.print("\nEnter the index 1: ");
-            int index1 = sc.nextInt();
-            System.out.print("Enter the index 2: ");
-            int index2 = sc.nextInt();
-            change(arr, index1, index2);
-            System.out.println();
-//            System.out.println(Arrays.toString(arr));
-            System.out.println(arr);
-        }
+        reverse(arr);
+        System.out.println("Reversed array: " + arr);
     }
 
     static void change(ArrayList<Integer> arr, int index1, int index2) {
@@ -51,5 +54,16 @@ public class Program7 {
         int temp = arr.get(index1);
         arr.set(index1, arr.get(index2));
         arr.set(index2, temp);
+    }
+
+    static void reverse(ArrayList<Integer> arr) {
+        int start = 0;
+        int end = arr.size()-1;
+
+        while(start<end) {
+            change(arr, start, end);
+            start++;
+            end--;
+        }
     }
 }

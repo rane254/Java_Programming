@@ -32,19 +32,9 @@ public class LinearSearch {
     }
 
     static int lSearch(int[] arr, int target) {
-        int start = 0;
-        int end = arr.length-1;
-
-        while (start < end) {
-            int middle = (start+end) / 2;
-            if (target == arr[middle]) {
-                return middle;
-            }
-
-            if (target > arr[middle]) {
-                start = middle+1;
-            } else {
-                end = middle-1;
+        for (int i = 0; i < arr.length; i++) {
+            if (target == arr[i]) {
+                return i;
             }
         }
         return -1;

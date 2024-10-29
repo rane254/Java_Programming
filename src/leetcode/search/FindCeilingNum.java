@@ -1,5 +1,7 @@
 package leetcode.search;
 
+import java.util.Arrays;
+
 public class FindCeilingNum {
     public static void main(String[] args) {
         int[] arr = {2, 3, 5, 9, 14, 16, 18};
@@ -21,11 +23,25 @@ public class FindCeilingNum {
         arr[idx2] = temp;
     }
 
+    // O(n/2) - may be an optimal solution, reduces the size of loop by half
     static int findCeiling(int[] arr, int target) {
         bubbleSort(arr);
-        for (int j : arr) {
-            if (j >= target) {
-                return j;
+        System.out.println(Arrays.toString(arr));
+        int start = 0;
+        int end = arr.length-1;
+
+        while (start < end) {
+            int mid = (start+end) / 2;
+            if (target >= arr[mid]) {
+                start = mid;
+            } else {
+                end = mid;
+            }
+
+            for (int i = start; i <=end; i++) {
+                if (arr[i] >= target) {
+                    return arr[i];
+                }
             }
         }
         return -1;

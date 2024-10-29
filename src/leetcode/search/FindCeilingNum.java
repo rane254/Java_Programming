@@ -30,6 +30,7 @@ public class FindCeilingNum {
         int start = 0;
         int end = arr.length-1;
 
+        // binary search
         while (start < end) {
             int mid = (start+end) / 2;
             if (target >= arr[mid]) {

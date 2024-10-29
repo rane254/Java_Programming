@@ -23,9 +23,9 @@ public class FindCeilingNum {
 
     static int findCeiling(int[] arr, int target) {
         bubbleSort(arr);
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] >= target) {
-                return arr[i];
+        for (int j : arr) {
+            if (j >= target) {
+                return j;
             }
         }
         return -1;

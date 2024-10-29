@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class FindCeilingNum {
     public static void main(String[] args) {
+        // ceiling = smallest number from an array starting from number >= target number
         int[] arr = {2, 3, 5, 9, 14, 16, 18};
         int ans = findCeiling(arr, 14);
         System.out.println(ans);

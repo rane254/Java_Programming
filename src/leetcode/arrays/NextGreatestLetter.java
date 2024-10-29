@@ -1,7 +1,5 @@
 package leetcode.arrays;
 
-import java.util.Arrays;
-
 public class NextGreatestLetter {
     public static void main(String[] args) {
         char[] letters = {'c','f','j'};

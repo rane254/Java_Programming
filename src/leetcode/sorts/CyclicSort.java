@@ -38,6 +38,6 @@ public class CyclicSort {
                 return i;
             }
         }
-        return -1;
+        return nums.length;
     }
 }

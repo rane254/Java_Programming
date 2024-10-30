@@ -1,24 +1,27 @@
 package advanced;
 
-import java.util.Scanner;
+import java.util.Arrays;
 
 public class BasicSorts {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+//        Scanner sc = new Scanner(System.in);
+//
+//        System.out.println("Enter the size of an array: ");
+//        int size = sc.nextInt();
+//
+//        int[] arr = new int[size];
+//
+//        for (int i=0; i<size; i++) {
+//            System.out.print("Enter number " + (i+1) + ": ");
+//            arr[i] = sc.nextInt();
+//        }
 
-        System.out.println("Enter the size of an array: ");
-        int size = sc.nextInt();
+        int[] arr = {5, -1, 2, 1, 4, 3, 0};
+        System.out.println(Arrays.toString(arr));
 
-        int[] arr = new int[size];
-
-        for (int i=0; i<size; i++) {
-            System.out.print("Enter number " + (i+1) + ": ");
-            arr[i] = sc.nextInt();
-        }
-
-        bubbleSort(arr); // n^2
+        // bubbleSort(arr); // n^2
         // selectionSort(arr); // n^2
-        // insertionSort(arr);
+         insertionSort(arr);
     }
 
     public static void swap(int[] arr, int idx1, int idx2) {
@@ -28,23 +31,15 @@ public class BasicSorts {
     }
 
     public static void display(int[] arr) {
-        System.out.print("Sorted array: ");
-        for (int ele : arr) {
-            System.out.print(ele + " ");
-        }
+        System.out.print("Sorted array: " + Arrays.toString(arr));
     }
 
     public static void bubbleSort(int[] arr) {
-
-        boolean isSwap = false;
-
+        boolean isSwap;
         for (int i=0; i<arr.length-1; i++) {
+            isSwap = false;
             for (int j=0; j<arr.length-i-1; j++) {
                 if (arr[j] > arr[j+1]) {
-//                    int temp = arr[j];
-//                    arr[j] = arr[j+1];
-//                    arr[j+1] = temp;
-
                     swap(arr, j, (j+1));
                     isSwap = true;
                 }
@@ -61,28 +56,34 @@ public class BasicSorts {
     }
 
     public static void selectionSort(int[] arr) {
-
-        for (int i=0; i<arr.length-1; i++) {
-            int smallest = i;
-            for (int j=i+1; j<arr.length; j++) {
-                if (arr[smallest] > arr[j]) {
-                    smallest = j;
-                }
-            }
-
-            swap(arr, smallest, i);
+        for (int i = 0; i < arr.length; i++) {
+            int end = arr.length - i - 1;
+            int maxIndex = getMaxIndex(arr, end);
+            swap(arr, maxIndex, end);
         }
 
         display(arr);
     }
 
-    private static void insertionSort(int[] arr) {
+    static int getMaxIndex(int[] arr, int end) {
+        int max = 0;
+        for (int i = 0; i<=end; i++) {
+            if (arr[i] > arr[max]) {
+                max = i;
+            }
+        }
+        return max;
+    }
 
-        for (int i=0; i<arr.length; i++) {
-            int j=i;
-            while (j > 0 && arr[j-1] > arr[j]) {
-                swap(arr, j, (j-1));
-                j--;
+
+    private static void insertionSort(int[] arr) {
+        for (int i=0; i<arr.length-1; i++) {
+            for (int j=i+1; j>0; j--) {
+                if (arr[j] < arr[j-1]) {
+                    swap(arr, j, j-1);
+                } else {
+                    break;
+                }
             }
         }
 

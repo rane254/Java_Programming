@@ -9,7 +9,7 @@ public class CyclicSort {
         System.out.println(Arrays.toString(arr));
         cyclicSort(arr);
         System.out.println(Arrays.toString(arr));
-//        int ans = firstMissingPositive(arr);
+//        int ans = missingNumber(arr);
 //        System.out.println(ans);
 
     }
@@ -18,8 +18,9 @@ public class CyclicSort {
         int i=0;
         while (i < arr.length) {
             int correctValueIndex = arr[i] -1;
-            if (arr[i] >= arr[correctValueIndex]) {
+            if (arr[i] != arr[correctValueIndex]) {
                 swap(arr, i, correctValueIndex);
+            } else {
                 i++;
             }
         }
@@ -32,9 +33,9 @@ public class CyclicSort {
     }
 
 
-    static int firstMissingPositive(int[] nums) {
-        int ans = 0;
+    static int missingNumber(int[] nums) {
+        int missing = 0;
 
-        return ans;
+        return missing;
     }
 }

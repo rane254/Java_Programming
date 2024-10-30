@@ -5,20 +5,19 @@ import java.util.Arrays;
 public class CyclicSort {
     public static void main(String[] args) {
         // This sort works only when the elements are 1-N in an array.
-        int[] arr = {3, 2, 1, 5, 4};
+        int[] arr = {3, 0, 1, 5, 4};
         System.out.println(Arrays.toString(arr));
         cyclicSort(arr);
-        System.out.println(Arrays.toString(arr));
-//        int ans = missingNumber(arr);
-//        System.out.println(ans);
+        int ans = missingNumber(arr);
+        System.out.println(ans);
 
     }
 
     public static void cyclicSort(int[] arr) {
         int i=0;
         while (i < arr.length) {
-            int correctValueIndex = arr[i] -1;
-            if (arr[i] != arr[correctValueIndex]) {
+            int correctValueIndex = arr[i];
+            if (arr[i] < arr.length && arr[i] != arr[correctValueIndex]) {
                 swap(arr, i, correctValueIndex);
             } else {
                 i++;
@@ -34,8 +33,11 @@ public class CyclicSort {
 
 
     static int missingNumber(int[] nums) {
-        int missing = 0;
-
-        return missing;
+        for (int i=0; i<nums.length; i++) {
+            if (nums[i] != i) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

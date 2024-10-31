@@ -13,7 +13,9 @@ public class StringBuilders {
         // int idx = sc.nextInt();
 
         // declarativeClass(str, idx);
-        reverseStr(str);
+//        reverseStr(str);
+        strPalindrome(str);
+
     }
 
     public static void declarativeClass(String str, int index) {
@@ -56,5 +58,33 @@ public class StringBuilders {
         }
 
         System.out.println("Reverse of " + str + " is " + sb);
+    }
+
+    static void strPalindrome(String name) {
+        StringBuilder sb = new StringBuilder(name.toLowerCase());
+        int start = 0;
+        int end = name.length()-1;
+        boolean isPalindrome = true;
+//        while (start < end) {
+//            if (sb.charAt(start) != sb.charAt(end)) {
+//                isPalindrome = false;
+//                break;
+//            }
+//            start++;
+//            end--;
+//        }
+
+        for (int i = 0; i < sb.length()/2; i++) {
+            if (sb.charAt(start) != sb.charAt(end)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if (isPalindrome) {
+            System.out.println("Is a palindrome.");
+        } else {
+            System.out.println("Not a palindrome!");
+        }
     }
 }

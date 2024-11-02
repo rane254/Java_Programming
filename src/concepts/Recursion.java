@@ -20,7 +20,7 @@ public class Recursion {
 
 class MergeSort {
     public static void main(String[] args) {
-        int[] arr = {5, 1, 2, 4, 3};
+        int[] arr = {5, 1, 2, 4, 3, 7, 9, 6, 10, 11};
         int[] ans = mergeSort(arr);
         System.out.println(Arrays.toString(ans));
     }
@@ -65,7 +65,7 @@ class MergeSort {
 
 class QuickSort {
     public static void main(String[] args) {
-        int[] arr = {5, 1, 2, 4, 3};
+        int[] arr = {7, 9, 6, 10, 11, 5, 1, 2, 3, 4, 8};
         int n = arr.length;
         quickSort(arr, 0, n-1);
         System.out.println(Arrays.toString(arr));

@@ -7,6 +7,11 @@ public class StackDS {
     StackDS() {
         this.size = 0;
     }
+
+    public static boolean isEmpty() {
+        return head == null;
+    }
+
     public class Node {
         int data;
         Node next;
@@ -21,7 +26,7 @@ public class StackDS {
     public void push(int data) {
         Node newNode = new Node(data);
 
-        if (head == null) {
+        if (isEmpty()) {
             head = newNode;
             return;
         }
@@ -31,7 +36,7 @@ public class StackDS {
     }
 
     public void pop() {
-        if (head == null) {
+        if (isEmpty()) {
             System.out.println("Stack is empty!");
             return;
         }
@@ -43,7 +48,7 @@ public class StackDS {
     }
 
     public void peek() {
-        if (head == null) {
+        if (isEmpty()) {
             System.out.println("Stack is empty!");
             return;
         }
@@ -56,7 +61,7 @@ public class StackDS {
     }
 
     public void printStack() {
-        if (head == null) {
+        if (isEmpty()) {
             System.out.println("Stack is empty!");
             return;
         }

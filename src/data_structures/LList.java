@@ -1,5 +1,7 @@
 package data_structures;
 
+import java.util.LinkedList;
+
 public class LList {
 
     static Node head = null;
@@ -106,27 +108,57 @@ public class LList {
     }
 
     public static void main(String[] args) {
-        LList list = new LList();
-        list.printList();
-        list.addFirst("I");
-        list.printList();
-        list.addLast("Am");
-        list.addLast("Brijesh");
-        list.printList();
+//        LList list = new LList();
+//        list.printList();
+//        list.addFirst("I");
+//        list.printList();
+//        list.addLast("Am");
+//        list.addLast("Brijesh");
+//        list.printList();
+//        list.addFirst("Hello");
+//        list.printList();
+//        list.deleteFirst();
+//        list.printList();
+//        list.addLast("PRO");
+//        list.printList();
+//        list.deleteLast();
+//        list.printList();
+//        list.deleteLast();
+//        list.deleteLast();
+//        list.printList();
+//        list.deleteLast();
+//        list.printList();
+//        list.deleteLast();
+//        System.out.println("Size: " + list.getSize());
+
+        LinkedList<String> list = new LinkedList<String>();
+
         list.addFirst("Hello");
-        list.printList();
-        list.deleteFirst();
-        list.printList();
-        list.addLast("PRO");
-        list.printList();
-        list.deleteLast();
-        list.printList();
-        list.deleteLast();
-        list.deleteLast();
-        list.printList();
-        list.deleteLast();
-        list.printList();
-        list.deleteLast();
-        System.out.println("Size: " + list.getSize());
+        System.out.println(list);
+        list.addLast("World");
+        list.addLast("!");
+        System.out.println(list);
+        System.out.println(list.size());
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + " -> ");
+        }
+        System.out.println("NULL");
+
+        list.removeFirst();
+        System.out.println(list);
+        System.out.println(list.size());
+
+        list.removeLast();
+        System.out.println(list);
+        System.out.println(list.size());
+
+        list.removeFirstOccurrence("World");
+        System.out.println(list);
+        System.out.println(list.size());
+
+         if (list.isEmpty()) {
+             System.out.println("List is empty!");
+         }
     }
 }

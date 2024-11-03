@@ -3,13 +3,20 @@ package data_structures;
 public class LList {
 
     static Node head = null;
-    public static class Node {
+    private int size;
+
+    LList () {
+        this.size = 0;
+    }
+
+    public class Node {
         String data;
         Node next;
 
         Node(String data) {
             this.data = data;
             this.next = null;
+            size++;
         }
     }
 
@@ -66,12 +73,20 @@ public class LList {
             return;
         }
 
+        size--;
         head = head.next;
     }
 
     public void deleteLast() {
         if (head == null) {
             System.out.println("List is empty!");
+            return;
+        }
+
+        size--;
+
+        if (head.next == null) {
+            head = null;
             return;
         }
 
@@ -84,6 +99,10 @@ public class LList {
         }
 
         currentNode.next = null;
+    }
+
+    public int getSize() {
+        return size;
     }
 
     public static void main(String[] args) {
@@ -102,5 +121,12 @@ public class LList {
         list.printList();
         list.deleteLast();
         list.printList();
+        list.deleteLast();
+        list.deleteLast();
+        list.printList();
+        list.deleteLast();
+        list.printList();
+        list.deleteLast();
+        System.out.println("Size: " + list.getSize());
     }
 }
